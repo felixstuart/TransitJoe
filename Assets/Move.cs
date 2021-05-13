@@ -7,36 +7,43 @@ using UnityEngine.UI;
 
 public class Move : MonoBehaviour
 {
-
+    Rigidbody2D m_Rigidbody;
+    public float m_Thrust = 20f;
     public float x1;
     public float x2;
     public float acceleration;
     public float speed;
 
-private void Update()
+    private void Start()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            x1 = Input.mousePosition.x;
-        }
+        //Fetch the Rigidbody from the GameObject with this script attached
+        m_Rigidbody = GetComponent<Rigidbody2D>();
+    }
 
-        if (Input.GetMouseButtonUp(0))
-        {
-            x2 = Input.mousePosition.x;
-            if (x1 > x2)
-            {
-                print("Move Left");
-                MoveLeft();
-            }
+    private void FixedUpdate()
+    {
+        // if (Input.GetMouseButtonDown(0))
+        // {
+        //     x1 = Input.mousePosition.x;
+        // }
+        //
+        // if (Input.GetMouseButtonUp(0))
+        // {
+        //     x2 = Input.mousePosition.x;
+        //     if (x1 > x2)
+        //     {
+        //         print("Move Left");
+        //         MoveLeft();
+        //     }
+        //
+        //     if (x1 < x2)
+        //     {
+        //         print("Move Right");
+        //         MoveRight();
+        //     }
+        // }
 
-            if (x1 < x2)
-            {
-                print("Move Right");
-                MoveRight();
-            }
-        }
-
-        speed += Time.realtimeSinceStartup * acceleration;
+        m_Thrust += Time.realtimeSinceStartup * acceleration;
         MoveForward();
     }
 
@@ -51,7 +58,6 @@ private void Update()
 
     public void MoveForward()
     {
-        transform.position +=
-            new Vector3(2.5f*speed, 1.25f*speed, 0);
+        m_Rigidbody.AddForce(new Vector3(2.5f, 1.25f, 0) * m_Thrust);
     }
 }
