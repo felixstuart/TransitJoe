@@ -7,3 +7,5 @@ bandits riding on horses, and a train, as well as rocks, stations, and a bridge.
 <ul>
 <li>#f2b424:sand primary</li>
 </ul>
+
+Thanks for looking at the readme. 
