@@ -1,7 +1,6 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using Ludiq;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -18,33 +17,32 @@ public class Move : MonoBehaviour
     {
         //Fetch the Rigidbody from the GameObject with this script attached
         m_Rigidbody = GetComponent<Rigidbody2D>();
+        m_Rigidbody.velocity = new Vector2(m_Thrust * 2, m_Thrust);
     }
 
     private void FixedUpdate()
     {
-        // if (Input.GetMouseButtonDown(0))
-        // {
-        //     x1 = Input.mousePosition.x;
-        // }
-        //
-        // if (Input.GetMouseButtonUp(0))
-        // {
-        //     x2 = Input.mousePosition.x;
-        //     if (x1 > x2)
-        //     {
-        //         print("Move Left");
-        //         MoveLeft();
-        //     }
-        //
-        //     if (x1 < x2)
-        //     {
-        //         print("Move Right");
-        //         MoveRight();
-        //     }
-        // }
-
-        m_Thrust += Time.realtimeSinceStartup * acceleration;
-        MoveForward();
+        if (Input.GetMouseButtonDown(0))
+        {
+            x1 = Input.mousePosition.x;
+        }
+        
+        if (Input.GetMouseButtonUp(0))
+        {
+            x2 = Input.mousePosition.x;
+            if (x1 > x2)
+            {
+                print("Move Left");
+                MoveLeft();
+            }
+        
+            if (x1 < x2)
+            {
+                print("Move Right");
+                MoveRight();
+            }
+        }
+        
     }
 
     public void MoveLeft()
@@ -55,9 +53,5 @@ public class Move : MonoBehaviour
     {
         transform.position += new Vector3(0.5f, -0.25f, 0);
     }
-
-    public void MoveForward()
-    {
-        m_Rigidbody.AddForce(new Vector3(2.5f, 1.25f, 0) * m_Thrust);
-    }
+    
 }
