@@ -17,7 +17,7 @@ public class Move : MonoBehaviour
     {
         //Fetch the Rigidbody from the GameObject with this script attached
         m_Rigidbody = GetComponent<Rigidbody2D>();
-        m_Rigidbody.velocity = new Vector2(m_Thrust*2, m_Thrust)
+        m_Rigidbody.velocity = new Vector2(m_Thrust * 2, m_Thrust);
     }
 
     private void FixedUpdate()
