@@ -1,18 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.Notifications.Android;
 using UnityEngine;
 
 public class CameraMovement : MonoBehaviour
 {
-    public float speed;
+    public Transform player;
 
-    public float acceleration;
+    public Vector3 offset;
     // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
-        speed += Time.deltaTime * acceleration;
-        transform.position +=
-            new Vector3(1.25f*speed, 0.625F*speed, 0);
+        transform.position = player.position + offset;
     }
 }
