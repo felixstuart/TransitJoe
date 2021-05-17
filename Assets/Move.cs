@@ -12,7 +12,7 @@ public class Move : MonoBehaviour
     public float x2;
     public float acceleration;
     public float speed;
-    public List<GameObject> hearts;
+    public List<Image> hearts;
 
     private void Start()
     {
@@ -27,7 +27,7 @@ public class Move : MonoBehaviour
         {
             x1 = Input.mousePosition.x;
         }
-        
+
         if (Input.GetMouseButtonUp(0))
         {
             x2 = Input.mousePosition.x;
@@ -36,29 +36,28 @@ public class Move : MonoBehaviour
                 print("Move Left");
                 MoveLeft();
             }
-        
+
             if (x1 < x2)
             {
                 print("Move Right");
                 MoveRight();
             }
         }
-        
+
     }
 
     public void MoveLeft()
     {
         transform.position += new Vector3(-0.5f, 0.25f, 0);
     }
+
     public void MoveRight()
     {
         transform.position += new Vector3(0.5f, -0.25f, 0);
     }
 
-    private void OnCollisionEnter2D(Collision2D other)
+    void OnCollisionEnter(Collision collision)
     {
-        print("Collided!");
-        Destroy(hearts[hearts.Count-1]);
-        print(hearts.Count - 1);
+        Destroy(collision.gameObject);
     }
 }
