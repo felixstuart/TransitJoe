@@ -56,7 +56,7 @@ public class Move : MonoBehaviour
         transform.position += new Vector3(0.5f, -0.25f, 0);
     }
 
-    void OnCollisionEnter(Collision collision)
+    void OnCollisionEnter2D(Collision2D collision)
     {
         Destroy(collision.gameObject);
     }
