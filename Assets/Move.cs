@@ -12,6 +12,7 @@ public class Move : MonoBehaviour
     public float x2;
     public float acceleration;
     public float speed;
+    public List<GameObject> hearts;
 
     private void Start()
     {
@@ -53,5 +54,11 @@ public class Move : MonoBehaviour
     {
         transform.position += new Vector3(0.5f, -0.25f, 0);
     }
-    
+
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        print("Collided!");
+        Destroy(hearts[hearts.Count-1]);
+        print(hearts.Count - 1);
+    }
 }
