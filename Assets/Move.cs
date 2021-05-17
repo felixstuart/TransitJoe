@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Move : MonoBehaviour
@@ -10,9 +11,8 @@ public class Move : MonoBehaviour
     public float m_Thrust = 20f;
     public float x1;
     public float x2;
-    public float acceleration;
-    public float speed;
     public List<Image> hearts;
+    public Scene GameOver;
 
     private void Start()
     {
@@ -44,6 +44,11 @@ public class Move : MonoBehaviour
             }
         }
 
+        if (hearts.Count == 0)
+        {
+            print("Game Over!");
+            SceneManager.LoadScene("Game Over");
+        }
     }
 
     public void MoveLeft()
@@ -56,8 +61,17 @@ public class Move : MonoBehaviour
         transform.position += new Vector3(0.5f, -0.25f, 0);
     }
 
-    void OnCollisionEnter2D(Collision2D collision)
+    void OnTriggerEnter2D(Collider2D other)
     {
-        Destroy(collision.gameObject);
+        if (hearts.Count > 0)
+        {
+            Destroy(hearts[0]);
+            hearts.RemoveAt(0);
+        }
+        if (hearts.Count == 0)
+        {
+            print("Game Over");
+        }
+
     }
 }
