@@ -6,10 +6,11 @@ public class CameraMovement : MonoBehaviour
 {
     public Transform player;
 
-    public Vector3 offset;
+    public float offset;
     // Update is called once per frame
     void LateUpdate()
     {
-        transform.position = player.position + offset;
+        var transformPosition = transform.position;
+        transformPosition.x = player.position.x + offset;
     }
 }
