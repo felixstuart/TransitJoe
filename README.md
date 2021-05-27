@@ -9,3 +9,5 @@ bandits riding on horses, and a train, as well as rocks, stations, and a bridge.
 </ul>
 
 Thanks for looking at the readme. 
+
+We are looking to a release date later this fall, if everything goes well.
