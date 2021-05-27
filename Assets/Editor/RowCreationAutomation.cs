@@ -14,7 +14,7 @@ public class RowCreation : EditorWindow
 
     private int clickedTimes;
     // Add menu item named "My Window" to the Window menu
-    [MenuItem("Utilities/Generate Rows")]
+    [MenuItem("Window/Generate Rows")]
     public static void ShowWindow()
     {
         //Show existing window instance. If one doesn't exist, make one.
