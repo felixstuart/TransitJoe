@@ -49,15 +49,6 @@ public class Move : MonoBehaviour
             print("Game Over!");
             SceneManager.LoadScene("Game Over");
         }
-
-        if (Input.GetKeyDown(KeyCode.LeftArrow))
-        {
-            MoveLeft();
-        }
-        if (Input.GetKeyDown(KeyCode.RightArrow))
-        {
-            MoveRight();
-        }
     }
 
     public void MoveLeft()
