@@ -5,11 +5,13 @@ using UnityEngine;
 
 public class CameraMovement : MonoBehaviour
 {
-    public Rigidbody2D rb;
-    public float speed;
-    public float thrust;
+    Rigidbody2D m_Rigidbody;
+    public float m_Thrust = 2;
     private void Start()
     {
-        rb.velocity = new Vector2((speed * 2) * thrust, speed * thrust);
+        //Fetch the Rigidbody from the GameObject with this script attached
+        m_Rigidbody = GetComponent<Rigidbody2D>();
+        m_Rigidbody.velocity = new Vector2(m_Thrust * 2, m_Thrust);
+        
     }
 }

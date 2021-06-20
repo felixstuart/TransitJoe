@@ -18,7 +18,6 @@ public class IsometricGen : MonoBehaviour
     {
         var o = gameObject;
         var position = twin.transform.position;
-        print("In-Visible!");
         transform.position = position+_change;
         o.name = transform.position.ToString();
         return "Void";

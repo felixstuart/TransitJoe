@@ -21,7 +21,7 @@ public class Move : MonoBehaviour
         m_Rigidbody.velocity = new Vector2(m_Thrust * 2, m_Thrust);
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
         if (Input.GetMouseButtonDown(0))
         {
